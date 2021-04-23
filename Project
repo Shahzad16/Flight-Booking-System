@@ -1,0 +1,19 @@
+from tkinter import *
+import tkinter.messagebox as tmsg
+
+root=Tk()
+root.geometry("600x600")
+Label(root, text="Select the country you want to travel",font="lucidia 19 bold").pack()
+
+countries={1:"Turkey",2:"Denmark",3: "Japan",4:"Netherlands",5:"America" }
+
+var=StringVar()
+new_var=var.set("nonewhere")
+def travel():
+    tmsg.showinfo("Let's Travel", f"So,we're booking your flight to " 
+    f"{var.get()}\nWe wish you a happy journey. Thanks for booking with us!")
+for x in countries:
+    Radiobutton(root, text=countries[x], variable=var,
+    value=countries[x]).pack()
+Button(root, text="Let's travel", command=travel).pack()
+root.mainloop()
